@@ -19,11 +19,11 @@ const Employee_list = () => {
    	  setEmployees(employees.filter(i => i._id !== id));
 		}
 
-		const listEmployees = () => {
-				return employees.map(i => {
+		const listEmployees = () => (
+			  employees.map(i => {
 					return <Employee employee={i} delete={(id) => deleteEmployee(id)} key={i._id}/>
 				})
-		}
+		)
 
 		useEffect(() => {
 			axios.get(port)
@@ -42,7 +42,7 @@ const Employee_list = () => {
                     <tr>
                       <th>Name</th>
                       <th>Salary</th>
-											<th></th>
+											<th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,15 +55,3 @@ const Employee_list = () => {
 	}
 
 export default Employee_list
-
-    //const listEmployees = () => {
-    //    return employees.map(employee => {
-    //        return(
-    //        <tr>
-    //          <td>{employee.name}</td>
-    //          <td>{employee.pay}</td>
-    //        </tr>
-    //        )
-    //    });
-    //}
-
