@@ -7,7 +7,7 @@ const Employee = (props) => (
 	<tr>
     <td>{props.employee.name}</td>
     <td>{props.employee.pay}</td>
-		<td><a href="#" onClick={() => { props.delete(props.employee._id) }}>delete</a></td>
+    <td><a href="#" onClick={() => { props.delete(props.employee._id) }}>delete</a></td>
   </tr>
 )
 
