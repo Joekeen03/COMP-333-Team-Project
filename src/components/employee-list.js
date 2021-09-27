@@ -15,7 +15,7 @@ const Employee_list = () => {
     var [employees, setEmployees] = useState([]);
 
 		const deleteEmployee = (id) => {
-			axios.delete(port+id).then(res => console.log(res.data));
+			axios.delete(port+id).then(res => console.log(res.data)).catch(e => console.log(e + "; doesnt exist"));
    	  setEmployees(employees.filter(i => i._id !== id));
 		}
 
