@@ -2,7 +2,7 @@
   "name": "project380",
   "version": "0.1.0",
   "private": true,
-	"homepage": ".",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -15,6 +15,7 @@
     "env": "0.0.2",
     "express": "^4.17.1",
     "mongoose": "^6.0.7",
+    "nodemon": "^2.0.15",
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "react": "^17.0.2",
