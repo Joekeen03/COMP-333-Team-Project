@@ -6,7 +6,7 @@ import Employees from "./components/employee-list"
 import Create from "./components/create-employee"
 import NavBar from "./components/nav-bar"
 
-const hi = () => {}
+const hi = () => {console.log("dumb")}
 
 function App() {
   return (
