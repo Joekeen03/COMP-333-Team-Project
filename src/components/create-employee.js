@@ -18,8 +18,10 @@ const Create_employee = () => {
 
 		axios.post('http://localhost:5000/employees/create', emp).then(res => console.log(res.data))
 
-		window.location = '/'
+		//window.location = '/'
 	}
+
+  // Here is a test line.
 
 	return(
 		<div>
