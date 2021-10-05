@@ -6,6 +6,8 @@ import Employees from "./components/employee-list"
 import Create from "./components/create-employee"
 import NavBar from "./components/nav-bar"
 
+const hi = () => {}
+
 function App() {
   return (
     <Router>
