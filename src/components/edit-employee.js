@@ -20,9 +20,9 @@ const Edit_employee = () => {
 		
 		console.log(emp)
 
-		axios.post(port+'update/'+id, emp).then(res => window.location = '/')
+		axios.post(port+'update/'+id, emp).then(() => window.location = '/')
 		
-		setLoading('Uploading...')
+		setLoading('Updating...')
 	}
 
 	useEffect(() => {
