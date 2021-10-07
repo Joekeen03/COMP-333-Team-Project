@@ -19,9 +19,9 @@ const Edit_employee = () => {
 		
 		console.log(emp)
 
-		axios.post(port+'update/'+id, emp).then(res => console.log(res.data))
+		axios.post(port+'update/'+id, emp).then(res => window.location = '/')
 		
-		window.location = '/'
+		
 	}
 
 	useEffect(() => {

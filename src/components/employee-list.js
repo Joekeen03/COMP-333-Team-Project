@@ -53,7 +53,7 @@ const Employee_list = () => {
 							<i className="bi bi-search p-1"></i>
 							<input className="" placeholder="Search Employee" 
 								type="text" 
-								onChange={e => setEmployees(temp.filter(i => i.name.includes(e.target.value)))}/>
+								onChange={e => setEmployees(temp.filter(i => i.name.toLowerCase().includes(e.target.value.toLowerCase())))}/>
 						</div>
 					</div>
             <table className="table align-items-stretch">
