@@ -6,6 +6,7 @@ import axios from 'axios';
 const Edit_employee = () => {
 	var [name, setName] = useState('')
 	var [pay, setPay] = useState('')
+	var [loading, setLoading] = useState('Update Employee')
 
   const id  = window.location.pathname.substring(6)
 
@@ -21,7 +22,7 @@ const Edit_employee = () => {
 
 		axios.post(port+'update/'+id, emp).then(res => window.location = '/')
 		
-		
+		setLoading('Uploading...')
 	}
 
 	useEffect(() => {
@@ -59,7 +60,7 @@ const Edit_employee = () => {
 
         <div className="form-group py-2">
 					
-          <input type="submit" value="Update Employee" className="btn btn-primary"/>
+          <input type="submit" value={loading} className="btn btn-primary"/>
         </div>
       </form>
     </div>
