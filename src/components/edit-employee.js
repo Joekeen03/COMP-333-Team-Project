@@ -3,7 +3,7 @@ import port from "./port"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Edit_employee = (props) => {
+const Edit_employee = () => {
 	var [name, setName] = useState('')
 	var [pay, setPay] = useState('')
 
@@ -19,9 +19,9 @@ const Edit_employee = (props) => {
 		
 		console.log(emp)
 
-		axios.post(port+'update/'+id, emp).then(res => console.log(res.data))
+		axios.post(port+'update/'+id, emp).then(res => window.location = '/')
 		
-		window.location = '/'
+		
 	}
 
 	useEffect(() => {
@@ -38,7 +38,8 @@ const Edit_employee = (props) => {
       <form onSubmit={onSubmit}>
         <div className="form-group"> 
           <label>Name: </label>
-          <input  type="text"
+          <input  
+							type="text"
               required
               className="form-control"
               value={name}
@@ -49,6 +50,7 @@ const Edit_employee = (props) => {
           <label>Salary: </label>
           <input 
               type="text" 
+							required
               className="form-control"
               value={pay}
               onChange={(e) => setPay(e.target.value)}
