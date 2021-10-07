@@ -51,7 +51,7 @@ const Employee_list = () => {
             <h3>Employees</h3>
 						<div>
 							<i className="bi bi-search p-1"></i>
-							<input className="" placeholder="Search Employee" 
+							<input className="" placeholder="Search tesaujhgs Employee" 
 								type="text" 
 								onChange={e => setEmployees(temp.filter(i => i.name.toLowerCase().includes(e.target.value.toLowerCase())))}/>
 						</div>
