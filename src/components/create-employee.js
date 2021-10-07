@@ -6,7 +6,7 @@ import axios from 'axios';
 const Create_employee = () => {
 	var [name, setName] = useState('')
 	var [pay, setPay] = useState('')
-	var [loading, setLoading] = useState('Update Employee')
+	var [loading, setLoading] = useState('Add Employee')
 
 	var onSubmit = (e) => {
 		e.preventDefault();
