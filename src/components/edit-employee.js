@@ -50,7 +50,7 @@ const Edit_employee = () => {
         <div className="form-group">
           <label>Salary: </label>
           <input 
-              type="text" 
+              type="text"
 							required
               className="form-control"
               value={pay}
