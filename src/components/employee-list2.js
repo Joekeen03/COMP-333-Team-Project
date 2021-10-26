@@ -7,18 +7,21 @@ import port from "./port"
 var temp = [];
 
 const Employee = (props) => (
-		<div className="col-md-6 col-lg-3">
+//	<Link to={"/edit/"+props.employee._id}>
+		<div className="col-md-6 col-lg-3" href="#">
 				<div className="card bg-light">
 						<div className="card-body text-center">
 								<img src={props.pic} className="rounded-circle mb-3" alt=""/>
 								<h3 className="card-title mb-3">{props.employee.name}</h3>
 								<p className="card-text">Salary: {props.employee.pay}</p>
+								<p className="card-text">Salary: {props.employee.position}</p>
 								<div>
-									<Link to={"/edit/"+props.employee._id}>edit</Link> | <a href="#" onClick={() => { props.delete(props.employee._id) }}>delete</a>
+									<Link to={"/edit/"+props.employee._id}>View</Link> | <a href="#" onClick={() => { props.delete(props.employee._id) }}>delete</a>
 								</div>
 						</div>
 				</div>
 		</div>
+//	</Link>
 )
 
 const divStyle = { // for no new line
@@ -53,6 +56,7 @@ const Employee_list2 = () => {
     return(    
 				<div className="row g-4 ">
 						{listEmployees()}		
+						<button>asd</button>
 				</div>
 		)
 	}

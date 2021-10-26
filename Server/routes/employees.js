@@ -7,11 +7,22 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/create').post((req, res) => {
-    const name = req.body.name;
-		const pay = req.body.pay;
+		var r = req.body;
+    const name = r.name;
+		const pay = r.pay;
+		const attend = r.attend;
+		const schedule = r.schedule;
+		const position = r.position;
+		const address = r.pay;
+		const test = r.test
     const newEmployee = new Employee({
         name,
         pay,
+				attend,
+        schedule,
+				position,
+        address,
+				test,
     });
 
     newEmployee.save()
