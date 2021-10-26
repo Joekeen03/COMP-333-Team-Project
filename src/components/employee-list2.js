@@ -14,7 +14,7 @@ const Employee = (props) => (
 								<img src={props.pic} className="rounded-circle mb-3" alt=""/>
 								<h3 className="card-title mb-3">{props.employee.name}</h3>
 								<p className="card-text">Salary: {props.employee.pay}</p>
-								<p className="card-text">Salary: {props.employee.position}</p>
+								<p className="card-text">Position: {props.employee.position}</p>
 								<div>
 									<Link to={"/edit/"+props.employee._id}>View</Link> | <a href="#" onClick={() => { props.delete(props.employee._id) }}>delete</a>
 								</div>
