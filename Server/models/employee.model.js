@@ -6,7 +6,7 @@ const employeeSchema = new Schema( {
     pay: '',
 		attend: '',
 		schedule: '',
-		position: '',
+		position: {type: String, default: 'ADSF'},
 		address: [[]],  
 		test: []
 }, {
