@@ -35,22 +35,12 @@ const Create_employee = () => {
 
         <div className="form-group"> 
           <label>Name: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              />
-        </div>
-
-        <div className="form-group">
-          <label>Position: </label>
-          <input 
-              type="text" 
+          <input  
+							type="text"
 							required
               className="form-control"
-              value={position}
-              onChange={(e) => sP(e.target.value)}
+              defaultValue={name}
+              onChange={(e) => setName(e.target.value)}
               />
         </div>
 
@@ -60,52 +50,29 @@ const Create_employee = () => {
               type="text" 
 							required
               className="form-control"
-              value={pay}
+              defaultValue={pay}
               onChange={(e) => setPay(e.target.value)}
               />
         </div>
 
-				<div className="form-group">
-          <label>Attendance: </label>
+        <div className="form-group">
+          <label>Position: </label>
           <input 
               type="text" 
 							required
               className="form-control"
-              value={attend}
-              onChange={(e) => sA(e.target.value)}
+              defaultValue={position}
+              onChange={(e) => sP(e.target.value)}
               />
-        </div>
-
-				<div className="form-group">
-          <label id="a">Schedule: </label>
-					<br/>
-							<div>
-								<label>Day </label>
-          		<select>
-								<option value="asd">Monday</option>
-								<option value="asfggd">Tuesday</option>
-								<option value="asd">Wednesday</option>
-								<option value="asfggd">Thursday</option>
-								<option value="asd">Friday</option>
-								<option value="asfggd">Saturday</option>
-								<option value="asd">Sunday</option>
-							</select>
-							<label>Time</label>
-							<select>
-								<option value="asd">Monday</option>
-								<option value="asfggd">tuesday</option>
-							</select>
-							</div>
-							<input type="button" value="heele"/>
         </div>
 
 				<div className="form-group">
           <label>Address: </label>
           <input 
               type="text" 
-							required
+						  required
               className="form-control"
-              value={address}
+              defaultValue={address}
               onChange={(e) => sAdd(e.target.value)}
               />
         </div>
