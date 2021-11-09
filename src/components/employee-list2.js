@@ -56,7 +56,6 @@ const Employee_list2 = () => {
     return(    
 				<div className="row g-4 ">
 						{listEmployees()}		
-						<button>asd</button>
 				</div>
 		)
 	}

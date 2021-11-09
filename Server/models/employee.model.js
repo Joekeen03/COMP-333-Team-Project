@@ -6,9 +6,8 @@ const employeeSchema = new Schema( {
     pay: '',
 		attend: '',
 		schedule: '',
-		position: {type: String, default: 'ADSF'},
-		address: [[]],  
-		test: []
+		position: '',
+		address: '',  
 }, {
     timestamps: true,
 });

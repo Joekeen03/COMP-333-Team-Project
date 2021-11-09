@@ -18,10 +18,10 @@ router.route('/create').post((req, res) => {
     const newEmployee = new Employee({
         name,
         pay,
-				attend,
-        schedule,
 				position,
         address,
+				attend,
+        schedule,
 				test,
     });
 
@@ -43,6 +43,8 @@ router.route('/update/:id').post((req, res) => {
     Employee.findById(req.params.id).then(employee => {
         employee.name = req.body.name;
         employee.pay = req.body.pay;
+				employee.position = req.body.position;
+        employee.address = req.body.address;
 
         employee.save().then(() => res.json('Employee updated')).catch(err => res.status(400).json('Error: ' + err))
     }).catch(err => res.status(400).json('Error: ' + err))

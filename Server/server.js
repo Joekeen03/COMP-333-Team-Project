@@ -9,10 +9,10 @@ const path = require("path")
 const URI = "mongodb+srv://Lemond:crc0IFRmiYK1j93r@cluster0.6elut.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 app.use(cors());
-app.use(express.json());
+ app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "..", "build")));
-app.use(express.static("public"));
+//app.use(express.static(path.join(__dirname, "..", "build")));
+//app.use(express.static("public"));
 
 mongoose.connect(URI, {
     useNewUrlParser: true,
@@ -25,10 +25,6 @@ mongoose.connect(URI, {
 const employeesRouter = require("./routes/employees");
 
 app.use("/employees", employeesRouter);
-
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
-});
 
 //if(process.env.NODE_ENV === "production") {
 //  app.use(express.static('../build'))
