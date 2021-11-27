@@ -5,6 +5,7 @@ let modelNames = require("./modelNames")
 
 const employeeSchema = new Schema( {
     name: '',
+	payType: '',
     pay: '',
 	attend: '',
 	schedule: '',
