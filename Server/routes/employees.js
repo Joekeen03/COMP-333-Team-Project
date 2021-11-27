@@ -10,6 +10,7 @@ router.route('/create').post((req, res) => {
 		var r = req.body;
     const name = r.name;
 		const pay = r.pay;
+    const payType = r.payType;
 		const attend = r.attend;
 		const schedule = r.schedule;
 		const position = r.position;
@@ -17,6 +18,7 @@ router.route('/create').post((req, res) => {
 		const test = r.test
     const newEmployee = new Employee({
         name,
+        payType,
         pay,
 				attend,
         schedule,

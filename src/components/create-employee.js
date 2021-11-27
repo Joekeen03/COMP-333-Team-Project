@@ -4,6 +4,8 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const Create_employee = () => {
+  const payTypes = [{value: "Salary"}, {value: "Hourly"}]
+
 	var [name, setName] = useState('')
 	var [pay, setPay] = useState('')
 	var [position, sP] = useState('')
@@ -11,14 +13,18 @@ const Create_employee = () => {
 	var [schedule, sS] = useState('')
 	var [address, sAdd] = useState('')
 	var [loading, setLoading] = useState('Add Employee')
+  var [payType, setPayType] = useState(payTypes[0].value)
 
 	var onSubmit = (e) => {
 		e.preventDefault();
 
 		const emp = {
 			name: name,
+      payType: payType,
 			pay: pay,
-			position: position
+			position: position,
+      attend: attend,
+      address: address, 
 		}
 		
 		console.log(emp)
@@ -54,6 +60,15 @@ const Create_employee = () => {
               />
         </div>
 
+        <div className="form-group">
+          <label>Pay Type:</label>
+          <select onChange={(e) => setPayType(e.target.value)} value={payType}>
+            {payTypes.map(o => (
+              <option value={o.value}>{o.value}</option>
+            ))}
+          </select>
+        </div>
+
 				<div className="form-group">
           <label>Salary: </label>
           <input 
@@ -82,18 +97,18 @@ const Create_employee = () => {
 							<div>
 								<label>Day </label>
           		<select>
-								<option value="asd">Monday</option>
-								<option value="asfggd">Tuesday</option>
-								<option value="asd">Wednesday</option>
-								<option value="asfggd">Thursday</option>
-								<option value="asd">Friday</option>
-								<option value="asfggd">Saturday</option>
-								<option value="asd">Sunday</option>
+								<option value="Monday">Monday</option>
+								<option value="Tuesday">Tuesday</option>
+								<option value="Wednesday">Wednesday</option>
+								<option value="Thursday">Thursday</option>
+								<option value="Friday">Friday</option>
+								<option value="Saturday">Saturday</option>
+								<option value="Sunday">Sunday</option>
 							</select>
 							<label>Time</label>
 							<select>
-								<option value="asd">Monday</option>
-								<option value="asfggd">tuesday</option>
+								<option value="Monday">Monday</option>
+								<option value="Tuesday">Tuesday</option>
 							</select>
 							</div>
 							<input type="button" value="heele"/>
@@ -111,7 +126,6 @@ const Create_employee = () => {
         </div>
 
         <div className="form-group py-2">
-					
           <input type="submit" value={loading} className="btn btn-primary" />
         </div>
       </form>

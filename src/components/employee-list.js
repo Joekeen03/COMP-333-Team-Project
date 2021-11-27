@@ -59,9 +59,9 @@ const Employee_list = () => {
             <table className="table align-items-stretch">
                 <thead className="thead-light">
                     <tr>
-                      <th>Name</th>
-                      <th>Salary</th>
-											<th>Action</th>
+                      	<th>Name</th>
+                     	<th>Salary</th>
+						<th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
