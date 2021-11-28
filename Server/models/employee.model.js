@@ -7,6 +7,7 @@ const employeeSchema = new Schema( {
     name: '',
 	payType: '',
     pay: '',
+	wage: '',
 	attend: '',
 	schedule: '',
 	position: {

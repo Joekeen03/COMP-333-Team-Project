@@ -13,6 +13,7 @@ router.route('/create').post((req, res) => {
     const name = r.name;
 		const pay = r.pay;
     const payType = r.payType;
+    const wage = r.wage;
 		const attend = r.attend;
 		const schedule = r.schedule;
 		const position = r.position;
