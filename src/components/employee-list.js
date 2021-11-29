@@ -8,14 +8,18 @@ var temp = [];
 
 const Employee = (props) => (
 	<tr>
-    <td>{props.employee.name}</td>
-    <td>{props.employee.pay}</td>
-    <td>
+		<td>{props.employee.name}</td>
+		{props.employee.payType === "Salary" ?
+				<td>{props.employee.pay}</td>
+			:
+				<td>{props.employee.wage}</td>
+		}
+		<td>
 			<span style={divStyle}>
-				<Link to={"/edit/"+props.employee._id}>edit</Link> | <a href="#" onClick={() => { props.delete(props.employee._id) }}>delete</a>
+				<Link to={"/edit/"+props.employee._id}>View</Link> | <a href="#" onClick={() => { props.delete(props.employee._id) }}>Delete</a>
 			</span>
 		</td>
-  </tr>
+  	</tr>
 )
 
 const divStyle = { // for no new line
@@ -24,6 +28,7 @@ const divStyle = { // for no new line
 
 const Employee_list = () => {
     var [employees, setEmployees] = useState([]);
+	//hello();
 
 		const deleteEmployee = (id) => {
 			axios.delete(port+id).then(res => console.log(res.data)).catch(e => console.log(e + "; doesnt exist"));

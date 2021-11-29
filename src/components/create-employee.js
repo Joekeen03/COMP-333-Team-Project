@@ -2,30 +2,38 @@ import React from 'react'
 import port from "./port"
 import { useState } from 'react';
 import axios from 'axios';
+import { inputField } from '../helpers/display';
+import { dropdownField } from '../helpers/dropdown';
 
 const Create_employee = () => {
-  const payTypes = [{value: "Salary"}, {value: "Hourly"}]
+  	const payTypes = [
+		{value: "Hourly"}, 
+		{value: "Salary"}
+	]
 
 	var [name, setName] = useState('')
 	var [pay, setPay] = useState('')
-	var [position, sP] = useState('')
+	var [wage, setHourlyWage] = useState('')
+  	var [jobTitle, setTitle] = useState('')
+  	var [jobDescription, setDescription] = useState('')
 	var [attend, sA] = useState('')
-	var [schedule, sS] = useState('')
 	var [address, sAdd] = useState('')
 	var [loading, setLoading] = useState('Add Employee')
-  var [payType, setPayType] = useState(payTypes[0].value)
+  	var [payType, setPayType] = useState(payTypes[0].value)
 
 	var onSubmit = (e) => {
 		e.preventDefault();
-
 		const emp = {
 			name: name,
-      payType: payType,
+      		payType: payType,
 			pay: pay,
-			position: position,
-      attend: attend,
-      address: address, 
+			wage: wage,
+			position: {
+        		title: jobTitle,
+        		description: jobDescription
+      		}
 		}
+    
 		
 		console.log(emp)
 
@@ -36,94 +44,42 @@ const Create_employee = () => {
 
 	return(
 		<div>
-      <h3>Add Employee</h3>
-      <form onSubmit={onSubmit}>
-
-        <div className="form-group"> 
-          <label>Name: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              />
-        </div>
-
-        <div className="form-group">
-          <label>Position: </label>
-          <input 
-              type="text" 
-							required
-              className="form-control"
-              value={position}
-              onChange={(e) => sP(e.target.value)}
-              />
-        </div>
-
-        <div className="form-group">
-          <label>Pay Type:</label>
-          <select onChange={(e) => setPayType(e.target.value)} value={payType}>
-            {payTypes.map(o => (
-              <option value={o.value}>{o.value}</option>
-            ))}
-          </select>
-        </div>
-
+			<h3>Add Employee</h3>
+			<form onSubmit={onSubmit}>
+			{inputField("Name", name, setName)}
+			{inputField}
+			{inputField("Job Title", jobTitle, setTitle)}
+			{inputField("Job Description", jobDescription, setDescription)}
+			{dropdownField("Pay Type", payType, setPayType, payTypes)}
+			{(payType === "Salary") ?
+					<>{inputField("Salary", pay, setPay)}</>
+				:
+					<>{inputField("Hourly", wage, setHourlyWage)}</>	
+			}
 				<div className="form-group">
-          <label>Salary: </label>
-          <input 
-              type="text" 
-							required
-              className="form-control"
-              value={pay}
-              onChange={(e) => setPay(e.target.value)}
-              />
-        </div>
-
-				<div className="form-group">
-          <label>Attendance: </label>
-          <input 
-              type="text" 
-							required
-              className="form-control"
-              value={attend}
-              onChange={(e) => sA(e.target.value)}
-              />
-        </div>
-
-				<div className="form-group">
-          <label id="a">Schedule: </label>
+          		<label id="a">Schedule: </label>
 					<br/>
 							<div>
 								<label>Day </label>
-          		<select>
-								<option value="Monday">Monday</option>
-								<option value="Tuesday">Tuesday</option>
-								<option value="Wednesday">Wednesday</option>
-								<option value="Thursday">Thursday</option>
-								<option value="Friday">Friday</option>
-								<option value="Saturday">Saturday</option>
-								<option value="Sunday">Sunday</option>
-							</select>
-							<label>Time</label>
-							<select>
-								<option value="Monday">Monday</option>
-								<option value="Tuesday">Tuesday</option>
-							</select>
+          						<select>
+									<option value="Monday">Monday</option>
+									<option value="Tuesday">Tuesday</option>
+									<option value="Wednesday">Wednesday</option>
+									<option value="Thursday">Thursday</option>
+									<option value="Friday">Friday</option>
+									<option value="Saturday">Saturday</option>
+									<option value="Sunday">Sunday</option>
+								</select>
+								<label>Time</label>
+								<select>
+									<option value="Monday">Monday</option>
+									<option value="Tuesday">Tuesday</option>
+								</select>
 							</div>
 							<input type="button" value="heele"/>
         </div>
 
-				<div className="form-group">
-          <label>Address: </label>
-          <input 
-              type="text" 
-							required
-              className="form-control"
-              value={address}
-              onChange={(e) => sAdd(e.target.value)}
-              />
-        </div>
+        {inputField("Address", address, sAdd)}
 
         <div className="form-group py-2">
           <input type="submit" value={loading} className="btn btn-primary" />

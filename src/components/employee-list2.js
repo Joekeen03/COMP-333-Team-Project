@@ -31,6 +31,7 @@ const divStyle = { // for no new line
 const Employee_list2 = () => {
     var [employees, setEmployees] = useState([]);
 
+
 		const deleteEmployee = (id) => {
 			axios.delete(port+id).then(res => console.log(res.data)).catch(e => console.log(e + "; doesnt exist"));
    	  setEmployees(employees.filter(i => i._id !== id));
@@ -56,7 +57,6 @@ const Employee_list2 = () => {
     return(    
 				<div className="row g-4 ">
 						{listEmployees()}		
-						<button>asd</button>
 				</div>
 		)
 	}
