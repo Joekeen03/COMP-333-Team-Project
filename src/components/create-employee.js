@@ -27,6 +27,7 @@ const Create_employee = () => {
 			name: name,
       		payType: payType,
 			pay: pay,
+			wage: wage,
 			position: {
         		title: jobTitle,
         		description: jobDescription
@@ -51,27 +52,9 @@ const Create_employee = () => {
 			{inputField("Job Description", jobDescription, setDescription)}
 			{dropdownField("Pay Type", payType, setPayType, payTypes)}
 			{(payType === "Salary") ?
-					<div className="form-group"> 
-						<label>Salary: </label>
-						<input  
-						type="text"
-						required
-						className="form-control"
-						defaultValue={pay}
-						onChange={(e) => {setPayType(e.target.value)}}
-						/>
-					</div>
+					<>{inputField("Salary", pay, setPay)}</>
 				:
-					<div className="form-group"> 
-						<label>Hourly Wage: </label>
-						<input  
-						type="text"
-						required
-						className="form-control"
-						defaultValue={wage}
-						onChange={(e) => {setHourlyWage(e.target.value)}}
-						/>
-					</div>		
+					<>{inputField("Hourly", wage, setHourlyWage)}</>	
 			}
 				<div className="form-group">
           		<label id="a">Schedule: </label>

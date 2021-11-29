@@ -23,6 +23,7 @@ router.route('/create').post((req, res) => {
         name,
         payType,
         pay,
+        wage,
 				position,
         address,
 				attend,

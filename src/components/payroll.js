@@ -9,7 +9,15 @@ const Employee = (props) => (
     <tr>
         <td>{props.employee.name}</td>
         <td>{props.employee.hours_worked}</td>
-        <td>{props.employee.pay}</td>
+        {(props.employee.payType === "Salary") ?
+            <td>
+                {props.employee.pay}
+            </td>
+            :
+            <td>
+                {props.employee.wage}
+            </td>
+        }
         <td>{props.employee.schedule}</td>
         <td></td>
     </tr>

@@ -9,5 +9,6 @@ export let inputField = (dataName, dataVar, dataSetter) => {
                 defaultValue={dataVar}
                 onChange={(e) => {dataSetter(e.target.value)}}
                 />
-        </div>)
+        </div>
+    )
 }

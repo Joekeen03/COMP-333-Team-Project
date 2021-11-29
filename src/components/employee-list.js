@@ -8,14 +8,18 @@ var temp = [];
 
 const Employee = (props) => (
 	<tr>
-    <td>{props.employee.name}</td>
-    <td>{props.employee.pay}</td>
-    <td>
+		<td>{props.employee.name}</td>
+		{props.employee.payType === "Salary" ?
+				<td>{props.employee.pay}</td>
+			:
+				<td>{props.employee.wage}</td>
+		}
+		<td>
 			<span style={divStyle}>
 				<Link to={"/edit/"+props.employee._id}>View</Link> | <a href="#" onClick={() => { props.delete(props.employee._id) }}>Delete</a>
 			</span>
 		</td>
-  </tr>
+  	</tr>
 )
 
 const divStyle = { // for no new line
