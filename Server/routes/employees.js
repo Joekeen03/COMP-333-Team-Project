@@ -9,8 +9,13 @@ router.route('/').get((req, res) => {
 router.route('/create').post((req, res) => {
 		var r = req.body;
     const name = r.name;
-		const pay = r.pay;
+		const basePay = r.basePay;
     const payType = r.payType;
+<<<<<<< Updated upstream
+=======
+    const salaryWage = r.salaryWage;
+    const hourlyWage = r.hourlyWage;
+>>>>>>> Stashed changes
 		const attend = r.attend;
 		const schedule = r.schedule;
 		const position = r.position;
@@ -19,7 +24,15 @@ router.route('/create').post((req, res) => {
     const newEmployee = new Employee({
         name,
         payType,
+<<<<<<< Updated upstream
         pay,
+=======
+        basePay,
+        salaryWage,
+        hourlyWage,
+				position,
+        address,
+>>>>>>> Stashed changes
 				attend,
         schedule,
 				position,

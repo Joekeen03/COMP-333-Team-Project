@@ -2,13 +2,37 @@ import React from 'react'
 import port from "./port"
 import { useState } from 'react';
 import axios from 'axios';
+<<<<<<< Updated upstream
+=======
+import { inputField } from '../helpers/display';
+import { dropdownField } from '../helpers/dropdown';
+import { getPayForHourly, getPayForSalary } from '../helpers/calculations';
+>>>>>>> Stashed changes
 
 const Create_employee = () => {
   const payTypes = [{value: "Salary"}, {value: "Hourly"}]
 
+	const dayNames = [
+		{value: "Monday"},
+		{value: "Tuesday"},
+		{value: "Wednesday"},
+		{value: "Thursday"},
+		{value: "Friday"},
+		{value: "Saturday"},
+		{value: "Sunday"}
+	]
+
 	var [name, setName] = useState('')
+<<<<<<< Updated upstream
 	var [pay, setPay] = useState('')
 	var [position, sP] = useState('')
+=======
+	var [basePay, setBasePay] = useState(0)
+	var [salaryWage, setSalaryWage] = useState(0)
+	var [hourlyWage, setHourlyWage] = useState(0)
+  	var [jobTitle, setTitle] = useState('')
+  	var [jobDescription, setDescription] = useState('')
+>>>>>>> Stashed changes
 	var [attend, sA] = useState('')
 	var [schedule, sS] = useState('')
 	var [address, sAdd] = useState('')
@@ -20,6 +44,7 @@ const Create_employee = () => {
 
 		const emp = {
 			name: name,
+<<<<<<< Updated upstream
       payType: payType,
 			pay: pay,
 			position: position,
@@ -27,6 +52,18 @@ const Create_employee = () => {
       address: address, 
 		}
 		
+=======
+      		payType: payType,
+			basePay: basePay,
+			salaryWage: salaryWage,
+			hourlyWage: hourlyWage,
+			position: {
+        		title: jobTitle,
+        		description: jobDescription
+      		}
+		}
+    
+>>>>>>> Stashed changes
 		console.log(emp)
 
 		axios.post(port+'create', emp).then(() => window.location = '/')
@@ -36,6 +73,7 @@ const Create_employee = () => {
 
 	return(
 		<div>
+<<<<<<< Updated upstream
       <h3>Add Employee</h3>
       <form onSubmit={onSubmit}>
 
@@ -69,6 +107,32 @@ const Create_employee = () => {
           </select>
         </div>
 
+=======
+			<h3>Add Employee</h3>
+			<form onSubmit={onSubmit}>
+			{inputField("Name", name, setName)}
+			{inputField("Job Title", jobTitle, setTitle)}
+			{inputField("Job Description", jobDescription, setDescription)}
+			{dropdownField("Pay Type", payType, setPayType, payTypes)}
+			{(payType === "Salary") ?
+				// Assuming Bi-Weekly pay periods, 52/2 = 26 Total pay periods
+					<>
+						{inputField("Salary", basePay, setBasePay)}
+						<>
+							{setSalaryWage(getPayForSalary(basePay, 26))}
+						</>
+					</>
+
+				:
+				//Assuming Fifty two 40-hour workweeks for hourly employees
+					<>
+						{inputField("Hourly", hourlyWage, setHourlyWage)}
+						<>
+							{setBasePay(Math.round(hourlyWage * 52 * 40))}
+						</>
+					</>	
+			}
+>>>>>>> Stashed changes
 				<div className="form-group">
           <label>Salary: </label>
           <input 
@@ -94,9 +158,15 @@ const Create_employee = () => {
 				<div className="form-group">
           <label id="a">Schedule: </label>
 					<br/>
+<<<<<<< Updated upstream
 							<div>
 								<label>Day </label>
           		<select>
+=======
+						<div>
+							<label>Day </label>
+          					<select>
+>>>>>>> Stashed changes
 								<option value="Monday">Monday</option>
 								<option value="Tuesday">Tuesday</option>
 								<option value="Wednesday">Wednesday</option>
@@ -110,9 +180,15 @@ const Create_employee = () => {
 								<option value="Monday">Monday</option>
 								<option value="Tuesday">Tuesday</option>
 							</select>
+<<<<<<< Updated upstream
 							</div>
 							<input type="button" value="heele"/>
         </div>
+=======
+						</div>
+						<input type="button" value="heele"/>
+        		</div>
+>>>>>>> Stashed changes
 
 				<div className="form-group">
           <label>Address: </label>
@@ -130,8 +206,7 @@ const Create_employee = () => {
         </div>
       </form>
     </div>
-
 	)
-	}
+}
 
 export default Create_employee;

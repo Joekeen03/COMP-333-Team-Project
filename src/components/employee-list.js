@@ -48,7 +48,7 @@ const Employee_list = () => {
     return(
         <div>
 					<div className="d-md-flex justify-content-between align-items-center">
-            <h3>Employees</h3>
+            			<h3>Employees</h3>
 						<div>
 							<i className="bi bi-search p-1"></i>
 							<input className="" placeholder="Search Employee" 
