@@ -11,22 +11,13 @@ const Employee = (props) => (
     <tr>
         <td>{props.employee.name}</td>
         <td>{props.employee.hours_worked}</td>
-<<<<<<< Updated upstream
-        <td>{props.employee.pay}</td>
-        <td>{props.employee.schedule}</td>
-=======
-        {props.employee.salaryWage ? 
-            <td>${Math.round(props.employee.salaryWage)}</td>
+        {props.employee.hourlyWage ? 
+            <td>${Math.round(props.employee.hourlyWage * 40)}</td>
             :
-            <td>${Math.round(props.employee.hourlyWage)}</td>
+            <td>${Math.round(props.employee.basePay) / 26}</td>
         }
         <td>${getDeduction(props.employee.basePay, .23)}</td>
-        {props.employee.salaryWage ?
-            <td>${Math.round(props.employee.basePay - getDeduction(props.employee.basePay, .23))}</td>
-            :
-            <td></td>
-        }
->>>>>>> Stashed changes
+        <td>${Math.round(props.employee.basePay - getDeduction(props.employee.basePay, .23))}</td>
         <td></td>
     </tr>
 )

@@ -4,13 +4,9 @@ const Schema = mongoose.Schema;
 const employeeSchema = new Schema( {
     name: '',
 	payType: '',
-<<<<<<< Updated upstream
-    pay: '',
-=======
     basePay: '',
 	salaryWage: '',
 	hourlyWage: '',
->>>>>>> Stashed changes
 	attend: '',
 	schedule: '',
 	hours_worked: '',
