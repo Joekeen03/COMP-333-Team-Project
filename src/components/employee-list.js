@@ -9,10 +9,10 @@ var temp = [];
 const Employee = (props) => (
 	<tr>
 		<td>{props.employee.name}</td>
-		{props.employee.payType === "Salary" ?
-				<td>{props.employee.pay}</td>
+		{props.employee.payType === "Hourly" ?
+				<td>${Math.round(props.employee.wage * 40 * 52)}</td>
 			:
-				<td>{props.employee.wage}</td>
+				<td>${props.employee.pay}</td>
 		}
 		<td>
 			<span style={divStyle}>

@@ -8,18 +8,34 @@ var temp = [];
 const Employee = (props) => (
     <tr>
         <td>{props.employee.name}</td>
-        <td>{props.employee.hours_worked}</td>
-        {(props.employee.payType === "Salary") ?
+        <td>{props.employee.wage}</td>
+        {(props.employee.payType === "Hourly") ?
             <td>
-                {props.employee.pay}
+                ${Math.round(props.employee.wage * 40)}
             </td>
             :
             <td>
-                {props.employee.wage}
+                ${Math.round(props.employee.pay / 26)}
             </td>
         }
-        <td>{props.employee.schedule}</td>
-        <td></td>
+        {(props.employee.payType === "Hourly") ? 
+            <td>
+                ${Math.round(props.employee.wage * 12)}
+            </td>
+            :
+            <td>
+                ${Math.round((props.employee.pay / 26) * .3)}
+            </td>
+        }
+        {(props.employee.payType === "Hourly") ? 
+            <td>
+                ${Math.round(props.employee.wage * 40) - Math.round(props.employee.wage * 12)}
+            </td>
+            :
+            <td>
+                ${Math.round(props.employee.pay / 26) - Math.round((props.employee.pay / 26) * .3)}
+            </td>
+        }
     </tr>
 )
 
@@ -53,19 +69,15 @@ const Payroll  = () => {
                             />
                         </td>
                         <td>
-                            <td>
-                            </td>
                         </td>
                         <td>
                             <div>
-                                Pay Period: 
                             </div>
                         </td>
                         <td>
                         </td>
                         <td>
-                            <div
-                                >Hello
+                            <div>
                             </div>
                         </td>
                     </tr>

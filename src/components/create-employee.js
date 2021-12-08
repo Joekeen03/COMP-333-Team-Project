@@ -47,7 +47,6 @@ const Create_employee = () => {
 			<h3>Add Employee</h3>
 			<form onSubmit={onSubmit}>
 			{inputField("Name", name, setName)}
-			{inputField}
 			{inputField("Job Title", jobTitle, setTitle)}
 			{inputField("Job Description", jobDescription, setDescription)}
 			{dropdownField("Pay Type", payType, setPayType, payTypes)}
