@@ -20,6 +20,10 @@ const Edit_employee = () => {
 	//	return name;
 	//}
 
+	const at = {
+		position: 'absolute', bottom: 0,
+	}
+
 	const showEdit = () => {
 		setRet(edit())
 	}
@@ -66,8 +70,8 @@ const Edit_employee = () => {
              	<div className="row z-depth-2">
                  	<div className="col-sm-4 bg-info rounded-left">
         		        <div className="card-block text-center text-white">
-											<div className="my-5">
-											<img src={"https://randomuser.me/api/portraits/"+((Math.floor(Math.random()*2)) ? 'men':'women')+"/"+Math.floor(Math.random()*100)+".jpg"} width="250" height="250" className="" alt=""/>
+											<div className="my-5" style={at}>
+									
                     	</div>
 												<h1 className="font-weight-bold">{name}</h1>
                     		<h5>{position}</h5><input type="button" value="Edit" className="btn btn-warning" onClick={() => showEdit()}/>
