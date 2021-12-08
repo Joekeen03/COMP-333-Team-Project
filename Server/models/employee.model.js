@@ -4,18 +4,12 @@ let jobSchema = require("./job.model")
 let modelNames = require("./modelNames")
 
 const employeeSchema = new Schema( {
-    name: '',
-	payType: '',
-    pay: '',
-	wage: '',
-	attend: '',
-	schedule: '',
-	position: {
-		type: jobSchema,
-		required: true,
-		default: () => ({})
-	},
-	address: '',
+  name: '',
+  pay: '',
+	jobTitle: '',
+  jobDesc: '',
+	email: '',
+	status: '',
 }, {
     timestamps: true,
 });

@@ -12,23 +12,18 @@ router.route('/create').post((req, res) => {
 		var r = req.body;
     const name = r.name;
 		const pay = r.pay;
-    const payType = r.payType;
-    const wage = r.wage;
-		const attend = r.attend;
-		const schedule = r.schedule;
-		const position = r.position;
-		const address = r.pay;
-		const test = r.test
+		const jobTitle = r.jobTitle;
+		const jobDesc = r.jobDesc;
+		const email = r.email;
+		const status = r.status;
+		
     const newEmployee = new Employee({
         name,
-        payType,
         pay,
-        wage,
-				position,
-        address,
-				attend,
-        schedule,
-				test,
+				jobTitle,
+				jobDesc,
+				email,
+        status,
     });
 
     newEmployee.save()
@@ -54,12 +49,8 @@ router.route('/update/:id').post((req, res) => {
       // Ideally, if I call employee.set(req.body), it would only modify the lowest-level paths - e.g. employee.position.title = req.position.title
       // However, as it is, if I call employee.set(req.body), it will just replace the properties of employee - there doesn't seem to be an
       // option for recursion. So the entire employee.position property would be replaced, instead of just updating changed properties.
-        if (req.body.position)
-        {
-          employee.position.set(req.body.position);
-          delete req.body.position;
-        }
         // TODO: Handle attendance record
+
         employee.set(req.body);
 
         console.log(employee.modifiedPaths());
