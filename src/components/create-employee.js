@@ -25,13 +25,14 @@ const Create_employee = () => {
 		e.preventDefault();
 		const emp = {
 			name: name,
-      		payType: payType,
+      payType: payType,
 			pay: pay,
 			wage: wage,
 			position: {
         		title: jobTitle,
         		description: jobDescription
-      		}
+      		},
+			address: address
 		}
     
 		
@@ -55,28 +56,6 @@ const Create_employee = () => {
 				:
 					<>{inputField("Hourly", wage, setHourlyWage)}</>	
 			}
-				<div className="form-group">
-          		<label id="a">Schedule: </label>
-					<br/>
-							<div>
-								<label>Day </label>
-          						<select>
-									<option value="Monday">Monday</option>
-									<option value="Tuesday">Tuesday</option>
-									<option value="Wednesday">Wednesday</option>
-									<option value="Thursday">Thursday</option>
-									<option value="Friday">Friday</option>
-									<option value="Saturday">Saturday</option>
-									<option value="Sunday">Sunday</option>
-								</select>
-								<label>Time</label>
-								<select>
-									<option value="Monday">Monday</option>
-									<option value="Tuesday">Tuesday</option>
-								</select>
-							</div>
-							<input type="button" value="heele"/>
-        </div>
 
         {inputField("Address", address, sAdd)}
 
